@@ -26,47 +26,51 @@ function App() {
   return (
     <Container fluid="md">
       <Form onSubmit={handleSubmit} className="">
-        <Form.Group className="my-3">
+        <Form.Group className="my-3" controlId="formName">
           <Form.Label>Nom</Form.Label>
           <Form.Control
             required
             type="text"
             name="name"
+            id="name"
             placeholder="Entrez votre nom"
             onChange={handleChange}
             value={formData.name}
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3" controlId="formDate">
           <Form.Label>Date</Form.Label>
           <Form.Control
             required
             type="date"
             name="date"
+            id="date"
             onChange={handleChange}
             value={formData.date}
           />
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mb-3" controlId="formPriority">
           <Form.Label>Priorité</Form.Label>
           <Form.Select
             name="priority"
+            id="priority"
             onChange={handleChange}
             value={formData.priority}
-            className="mb-3"
           >
             <option value="low">Basse</option>
             <option value="mid">Moyenne</option>
             <option value="high">Haute</option>
           </Form.Select>
         </Form.Group>
-        <Form.Check
-          label="Tâche terminée ?"
-          name="isCompleted"
-          onChange={handleChange}
-          checked={formData.isCompleted}
-          className="mb-3"
-        />
+        <Form.Group className="mb-3" controlId="formIsCompleted">
+          <Form.Check
+            label="Tâche terminée ?"
+            name="isCompleted"
+            id="isCompleted"
+            onChange={handleChange}
+            checked={formData.isCompleted}
+          />
+        </Form.Group>
         <Button type="submit">Valider</Button>
       </Form>
     </Container>
