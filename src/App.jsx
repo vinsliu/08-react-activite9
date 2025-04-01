@@ -61,7 +61,7 @@ function App() {
           </Form.Select>
         </Form.Group>
         <Form.Check
-          label="Est complet ?"
+          label="Tâche terminée ?"
           name="isCompleted"
           onChange={handleChange}
           checked={formData.isCompleted}
