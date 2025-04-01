@@ -26,7 +26,7 @@ function App() {
   return (
     <Container fluid="md">
       <Form onSubmit={handleSubmit} className="">
-        <Form.Group className="mb-3">
+        <Form.Group className="my-3">
           <Form.Label>Nom</Form.Label>
           <Form.Control
             required
