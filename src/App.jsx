@@ -21,7 +21,7 @@ function App() {
         /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0,1,2])\/(20)\d{2}$/,
         "Le format doit être JJ/MM/AAAA."
       )
-      .test("isValid", "La date n'est pas valide", (value) => {
+      .test("isValid", "La date n'est pas valide.", (value) => {
         const [jour, mois, annee] = value.split("/").map(Number);
         const dateInput = new Date(annee, mois - 1, jour);
         if (
