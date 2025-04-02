@@ -24,13 +24,7 @@ function App() {
       .test("isValid", "La date n'est pas valide.", (value) => {
         const [jour, mois, annee] = value.split("/").map(Number);
         const dateInput = new Date(annee, mois - 1, jour);
-        if (
-          dateInput.getDate() !== jour ||
-          dateInput.getMonth() + 1 !== mois ||
-          dateInput.getFullYear() !== annee
-        ) {
-          return false;
-        }
+
         const aujourdhui = new Date();
         aujourdhui.setDate(0, 0, 0, 0);
         return dateInput >= aujourdhui;
