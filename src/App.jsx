@@ -6,12 +6,27 @@ function App() {
   const {
     register,
     handleSubmit,
+    watch,
+    reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      name: "",
+      date: "",
+      priority: "Basse",
+      isCompleted: false,
+    },
+  });
 
   const onSubmit = (data) => {
     console.log(data);
+    reset();
   };
+
+  const nameValue = watch("name");
+  const dateValue = watch("date");
+  const priorityValue = watch("priority");
+  const isCompletedValue = watch("isCompleted");
 
   return (
     <Container fluid="md">
@@ -36,9 +51,9 @@ function App() {
         <Form.Group className="mb-3" controlId="formPriority">
           <Form.Label>Priorité</Form.Label>
           <Form.Select {...register("priority")}>
-            <option value="low">Basse</option>
-            <option value="mid">Moyenne</option>
-            <option value="high">Haute</option>
+            <option value="Basse">Basse</option>
+            <option value="Moyenne">Moyenne</option>
+            <option value="Haute">Haute</option>
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formIsCompleted">
@@ -46,6 +61,10 @@ function App() {
         </Form.Group>
         <Button type="submit">Valider</Button>
       </Form>
+      <p>Nom : {nameValue || "Pas encore entré"} </p>
+      <p>Date : {dateValue || "Pas encore entré"} </p>
+      <p>Priorité : {priorityValue} </p>
+      <p>Tâche complété : {isCompletedValue ? "Oui" : "Non"} </p>
     </Container>
   );
 }
